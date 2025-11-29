@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: supernatural-telegram-bot
+    env: docker
+    docker:
+      dockerfile: Dockerfile
+    envVars:
+      - key: BOT_TOKEN
+        fromSecret: bot_token
+    plan: free
+    healthCheckPath: /
+    autoDeploy: true
